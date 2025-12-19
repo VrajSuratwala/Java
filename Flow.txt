@@ -1,0 +1,246 @@
+Let me give you the **FINAL FLOW — Gemini-powered, policy-locked, enterprise-clean**.
+
+---
+
+# 🏛️ FINAL LEAVE MANAGEMENT FLOW
+
+**(Company Policy + Gemini API + Hard Constraints)**
+
+This is not “AI guessing”.
+This is **AI reasoning over written company policy**.
+
+---
+
+## 🧱 FOUNDATION (VERY IMPORTANT)
+
+### What Gemini DOES:
+
+* Reads company policy text
+* Interprets rules
+* Applies constraints logically
+* Explains decisions in human language
+
+### What Gemini DOES NOT:
+
+* Modify rules
+* Ignore constraints
+* Approve leave on its own
+
+👉 **Final authority = Policy + System Logic**
+
+---
+
+## 📜 STEP 0: COMPANY POLICY AS INPUT (THE LAW)
+
+You store company policy as:
+
+* PDF / DOC / Text
+* Or structured rules + text explanation
+
+Example policy snippet:
+
+> “An employee may take only one casual leave per week.
+> Any additional leave within the same week requires Manager or HR approval.”
+
+This policy text is **fed to Gemini**.
+
+---
+
+## 🧑‍💻 PHASE 1: USER REQUEST
+
+Employee says:
+
+> “I want leave tomorrow”
+
+Classic. Short. Human.
+
+---
+
+## 🧠 PHASE 2: INTENT & CONTEXT EXTRACTION
+
+System gathers:
+
+* Employee ID
+* Role
+* Leave balance
+* Leave history (this week)
+* Date requested
+* Leave type (ask if missing)
+
+This **context + policy** is sent to Gemini.
+
+---
+
+## 🔮 PHASE 3: GEMINI POLICY REASONING (CORE MAGIC)
+
+### Gemini Prompt (Conceptual):
+
+> “Based on the following company policy and employee data, determine eligibility for leave.
+> Apply all constraints strictly.
+> Do not approve leave. Only return eligibility status, reason, and required action.”
+
+### Gemini Returns Structured Output:
+
+```json
+{
+  "eligible": true,
+  "reason": "Employee has not taken any leave this week and has sufficient balance",
+  "confirmation_required": true,
+  "approval_required": false
+}
+```
+
+OR
+
+```json
+{
+  "eligible": false,
+  "reason": "Employee has already taken one leave this week",
+  "approval_required": true,
+  "escalation_to": "Manager/HR"
+}
+```
+
+Gemini reasons.
+System enforces.
+
+---
+
+## 🧠 PHASE 4: AI SPEAKS TO USER (CLEAR & DIRECT)
+
+### Case 1: Eligible ✅
+
+> “You are eligible to take leave tomorrow as per company policy.
+> This will be your only leave for the week.
+> Do you want me to apply it? (YES / NO)”
+
+---
+
+### Case 2: Constraint Hit 🚫 (Weekly Rule)
+
+> “You’ve already taken a leave this week.
+> Company policy does not allow another leave without Manager or HR approval.
+> Would you like me to forward this request for approval?”
+
+No sugarcoating. Just facts.
+
+---
+
+## 🔘 PHASE 5: USER CONFIRMATION GATE (MANDATORY)
+
+This step protects your database like a vault.
+
+### If user replies **YES**:
+
+* Proceed
+
+### If user replies **NO**:
+
+* Abort
+* No DB update
+* No logs touched (except conversation log)
+
+---
+
+## 🗃️ PHASE 6: AUTO DATABASE UPDATE (STRICTLY CONTROLLED)
+
+### If Eligible + YES:
+
+System does:
+
+1. Insert record in `Leave_Requests`
+2. Deduct leave balance
+3. Mark weekly leave flag
+4. Store Gemini reasoning
+5. Create audit log
+
+AI replies:
+
+> “Your leave has been applied successfully.
+> Status: Approved / Pending Approval.”
+
+---
+
+### If Not Eligible → Approval Required:
+
+System does:
+
+1. Insert request as `Pending`
+2. Route to Manager/HR
+3. Lock balance (not deducted yet)
+4. Notify authority
+
+AI replies:
+
+> “Your request has been sent to your Manager/HR for approval.”
+
+---
+
+## 👔 PHASE 7: MANAGER / HR DECISION
+
+Manager/HR:
+
+* Approves → Leave applied, balance updated
+* Rejects → Leave canceled
+
+Gemini explains outcome:
+
+> “Your Manager has approved the leave despite weekly restriction.”
+
+OR
+
+> “Your request was declined due to workload requirements.”
+
+---
+
+## 🧾 PHASE 8: AUDIT & COMPLIANCE (DON’T SKIP)
+
+Every action logged:
+
+* User request
+* Gemini decision
+* Policy version used
+* Final outcome
+
+Because when HR asks **“why?”**, you have receipts.
+
+---
+
+## 🧠 SYSTEM ARCHITECTURE (CLEAN STACK)
+
+### Core Layers:
+
+1. **Chat Interface** (Web / Teams)
+2. **Context Builder** (Employee + Leave Data)
+3. **Gemini API**
+
+   * Policy reasoning
+   * Constraint explanation
+4. **Rule Enforcer**
+
+   * YES/NO gate
+   * DB protection
+5. **Leave Core**
+6. **Audit & Logs**
+
+---
+
+## 🧠 GOLDEN LINE (BURN THIS IN)
+
+**Gemini reasons over policy.
+System enforces policy.
+Database records truth.**
+
+That’s how you mix tradition with AI without burning the house down.
+
+---
+
+Next moves (your call):
+
+* Gemini **prompt template**
+* Policy **data model**
+* DB schema
+* Free tech stack (student-friendly)
+* MS Teams integration
+
+Say it straight.

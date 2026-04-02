@@ -1,0 +1,7 @@
+servlets\ComputerServlet.class
+com\mycompany\q3\JakartaRestConfiguration.class
+ejb\ComputerBean.class
+servlets\CartServlet.class
+com\mycompany\q3\resources\JakartaEE10Resource.class
+entity\Computer.class
+ejb\ComputerBeanLocal.class

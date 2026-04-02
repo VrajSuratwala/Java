@@ -1,0 +1,15 @@
+com\mycompany\productmanagementsystem\JakartaRestConfiguration.class
+beans\CategoryCDI$1.class
+beans\ProductCDI.class
+ejb\ProductBeanLocal.class
+com\mycompany\productmanagementsystem\resources\JakartaEE10Resource.class
+entity\Category.class
+servlet\TestServlet.class
+ejb\ProductBean.class
+entity\Product.class
+beans\CategoryCDI.class
+beans\ProductCDI$2.class
+ejb\CategoryBean.class
+ejb\CategoryBeanLocal.class
+client\RestClient.class
+beans\ProductCDI$1.class

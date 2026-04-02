@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:c="jakarta.tags.core"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:inputHidden value="#{productCDI.id}"/>
+            <h:panelGrid columns="2" border="1">
+                <h:outputLabel for="productName" value="Product Name"/>
+                <h:inputText id="productName" value="#{productCDI.productName}"/>
+                <h:outputLabel for="price" value="Price"/>
+                <h:inputText id="price" value="#{productCDI.price}"/>
+                <h:outputLabel for="category" value="Category"/>
+                <h:selectOneMenu id="category" value="#{productCDI.categoryId}">
+                    <f:selectItems value="#{productCDI.categories}" var="c" itemValue="#{c.id}" itemLabel="#{c.name}"/>                </h:selectOneMenu>
+            </h:panelGrid>
+        </h:form>
+        
+        <h:form>
+            <h:dataTable value="#{productCDI.products}" var="p" border="2">
+            <h:column>
+                <f:facet name="header">Product Name</f:facet>
+                #{p.productName}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Price</f:facet>
+                #{p.price}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Category</f:facet>
+                #{p.categoryId.name}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Update</f:facet>
+                <h:commandButton value="Update" action="#{productCDI.fillProduct()}">
+                    <f:setPropertyActionListener target="#{productCDI.id}" value="#{p.id}"/>
+                </h:commandButton>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Delete</f:facet>
+                <h:commandButton value="Delete" action="#{productCDI.deleteProduct(p.id)}"/>
+            </h:column>
+        </h:dataTable>
+        </h:form>
+    </h:body>
+</html>

@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <!--<h:inputHidden value="#{departmentBean.employeeId}"/>-->
+            <h:panelGrid columns="2" border="1">
+                <h:outputLabel for="ename" value="Employee Name"/>
+                <h:inputText id="ename" value="#{departmentBean.employeeName}" />
+                <h:outputLabel for="password" value="Password"/>
+                <h:inputText id="password" value="#{departmentBean.password}" />
+                <h:outputLabel for="department" value="Department"/>
+                <h:selectOneMenu value="#{departmentBean.deptid}">
+                    <f:selectItems value="#{departmentBean.depts}" var="d" itemLabel="#{d.name}" itemValue="#{d.id}"/>
+                </h:selectOneMenu>
+                <h:outputLabel for="gender" value="Gender"/>
+                <h:selectOneRadio value="#{departmentBean.gender}">
+                    <f:selectItem itemLabel="Male" itemValue="Maler"/>
+                    <f:selectItem itemLabel="Female" itemValue="Female"/>
+                </h:selectOneRadio>
+                <h:outputLabel for="Hobby" value="Hobby"/>
+                <h:selectManyCheckbox value="#{departmentBean.hobby}">
+                    <f:selectItem itemLabel="Reading" itemValue="Reading"/>
+                    <f:selectItem itemLabel="Writting" itemValue="Writting"/>
+                    <f:selectItem itemLabel="Dancing" itemValue="Dancing"/>
+                </h:selectManyCheckbox>
+                
+                <h:commandButton value="Add" action="#{departmentBean.add()}"/>
+            </h:panelGrid>
+        </h:form>
+    </h:body>
+</html>

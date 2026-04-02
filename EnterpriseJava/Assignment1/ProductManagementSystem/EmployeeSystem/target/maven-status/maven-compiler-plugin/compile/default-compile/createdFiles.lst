@@ -1,0 +1,7 @@
+beans/DepartmentBean.class
+ejb/EmployeeBeanLocal.class
+com/mycompany/employeesystem/JakartaRestConfiguration.class
+com/entity/Employee.class
+com/entity/Department.class
+ejb/EmployeeBean.class
+com/mycompany/employeesystem/resources/JakartaEE10Resource.class
